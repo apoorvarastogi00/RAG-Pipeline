@@ -1,0 +1,25 @@
+# Web framework
+fastapi
+uvicorn[standard]
+
+# Env / config
+python-dotenv
+pydantic
+pydantic-settings
+
+# PDF parsing
+pypdf
+
+# Embeddings + reranker
+sentence-transformers
+torch
+
+# Vector DB
+chromadb
+
+# LLM client
+groq
+
+# Misc
+tqdm
+numpy

@@ -1,0 +1,25 @@
+# Secrets / env
+.env
+
+# Vector index (rebuildable artifact)
+backend/data/chroma/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
