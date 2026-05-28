@@ -4,7 +4,7 @@
 // Base URL is configurable so the same build points at local / deployed backends.
 
 export const BASE_URL = (
-  import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000'
+  import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:7860'
 ).replace(/\/+$/, '')
 
 export async function postChat(query, { signal } = {}) {

@@ -112,7 +112,7 @@ Also rerun one or two out-of-scope questions through `/chat` when Groq quota is
 available, especially the IPC adversarial row:
 
 ```bash
-curl -s -X POST http://127.0.0.1:8000/chat \
+curl -s -X POST http://127.0.0.1:7860/chat \
   -H 'Content-Type: application/json' \
   -d '{"query":"What does Section 379 of the IPC say about theft?"}' \
   | python -m json.tool

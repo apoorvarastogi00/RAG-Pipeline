@@ -56,8 +56,8 @@ build would run):
   multi-GB CUDA build.
 - Copies the `backend` package (code + committed `data/*.json`) and `Sources/`.
 - Builds the index + warms both model caches (above).
-- Listens on Render's injected `$PORT` (defaults to 8000 locally):
-  `uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}`.
+- Listens on Render's injected `$PORT` (defaults to 7860 locally):
+  `uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-7860}`.
 - **Build context is the repo root** (`docker build -f backend/Dockerfile .`)
   so the `backend.app.*` package path resolves — `render.yaml` sets
   `dockerContext: .` to match.
@@ -104,8 +104,8 @@ baked into an image).
 To build/run the backend image locally once Docker is installed:
 ```bash
 docker build -f backend/Dockerfile -t legal-rag-backend .
-docker run -p 8000:8000 -e GROQ_API_KEY=sk_... legal-rag-backend
-curl localhost:8000/health
+docker run -p 7860:7860 -e GROQ_API_KEY=sk_... legal-rag-backend
+curl localhost:7860/health
 ```
 
 ---

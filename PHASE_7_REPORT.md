@@ -17,7 +17,7 @@ frontend/
 ├── index.html
 ├── package.json            react 18, vite 5, @vitejs/plugin-react
 ├── vite.config.js          dev server on :5173
-├── .env.example            VITE_API_BASE_URL=http://127.0.0.1:8000
+├── .env.example            VITE_API_BASE_URL=http://127.0.0.1:7860
 └── src/
     ├── main.jsx
     ├── api.js              fetch client for POST /chat + GET /health
@@ -49,7 +49,7 @@ frontend/
   disclosure below the answer, as chips with Act badges (transparency into
   what the retriever pulled vs. what the model actually cited).
 - **Configurable API base URL** — `VITE_API_BASE_URL` (defaults to
-  `http://127.0.0.1:8000`), read in [src/api.js](frontend/src/api.js). The
+  `http://127.0.0.1:7860`), read in [src/api.js](frontend/src/api.js). The
   same build can point at a deployed backend in Phase 8.
 - **Health banner** — calls `GET /health` on load and shows an online/offline
   dot; the composer placeholder changes when the backend is offline.
@@ -123,11 +123,11 @@ needs the daily quota to reset (Groq resets TPD daily) or a higher-tier key.
    ```bash
    # terminal 1 — backend
    cd "Legal Research RAG ChatBot"
-   .venv/bin/python -m uvicorn backend.app.main:app --port 8000
+   .venv/bin/python -m uvicorn backend.app.main:app --port 7860
 
    # terminal 2 — frontend
    cd "Legal Research RAG ChatBot/frontend"
-   cp .env.example .env        # optional; defaults to 127.0.0.1:8000
+   cp .env.example .env        # optional; defaults to 127.0.0.1:7860
    npm install                 # first time only
    npm run dev                 # opens http://localhost:5173
    ```
@@ -153,7 +153,7 @@ needs the daily quota to reset (Groq resets TPD daily) or a higher-tier key.
        def do_OPTIONS(self): self._send({})
        def do_GET(self): self._send({"status": "ok"})
        def do_POST(self): self._send(RESP)
-   HTTPServer(("127.0.0.1", 8000), H).serve_forever()
+   HTTPServer(("127.0.0.1", 7860), H).serve_forever()
    ```
    (If `/tmp/phase5/cross1.json` is gone, any object matching the Section 4
    shape works.) This lets you exercise the full UI render path offline.

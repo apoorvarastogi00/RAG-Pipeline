@@ -4,8 +4,8 @@
 **Agent:** Claude Code
 **Modules:** [backend/app/retriever.py](backend/app/retriever.py), [backend/app/generator.py](backend/app/generator.py), [backend/app/main.py](backend/app/main.py)
 **LLM:** Llama 3.3 70B via Groq (`llama-3.3-70b-versatile`)
-**Run locally:** `.venv/bin/python -m uvicorn backend.app.main:app --port 8000`
-**Swagger UI:** http://127.0.0.1:8000/docs
+**Run locally:** `.venv/bin/python -m uvicorn backend.app.main:app --port 7860`
+**Swagger UI:** http://127.0.0.1:7860/docs
 **Commit:** `feat: add retrieval and generation endpoint`
 
 ---
@@ -205,15 +205,15 @@ this flag is set (they're the retrieved-but-unrelated sections).
 1. **Start the server, then open Swagger UI.**
    ```bash
    cd "Legal Research RAG ChatBot"
-   .venv/bin/python -m uvicorn backend.app.main:app --port 8000
-   # open http://127.0.0.1:8000/docs
+   .venv/bin/python -m uvicorn backend.app.main:app --port 7860
+   # open http://127.0.0.1:7860/docs
    ```
    Hit `POST /chat` from the "Try it out" panel with each of the three
    queries above and confirm the response keys match the frozen contract.
 2. **Confirm the section-103 disambiguation works through the API.** Use
    Swagger or curl:
    ```bash
-   curl -s -X POST http://127.0.0.1:8000/chat \
+   curl -s -X POST http://127.0.0.1:7860/chat \
      -H 'Content-Type: application/json' \
      -d '{"query":"What does section 103 of the BNSS say?"}' \
      | python -m json.tool | head -30

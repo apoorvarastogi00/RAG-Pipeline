@@ -12,9 +12,9 @@ frozen as the Phase 7 (frontend) API contract:
     }
 
 Run locally:
-    .venv/bin/python -m uvicorn backend.app.main:app --reload --port 8000
+    .venv/bin/python -m uvicorn backend.app.main:app --reload --port 7860
 
-Open http://127.0.0.1:8000/docs for the Swagger UI.
+Open http://127.0.0.1:7860/docs for the Swagger UI.
 """
 from __future__ import annotations
 

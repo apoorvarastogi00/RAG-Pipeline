@@ -87,23 +87,23 @@ cp backend/.env.example backend/.env
 python -m backend.app.ingest
 #    creates backend/data/chroma/  (first run also downloads the two models)
 
-# 5. run the backend  (http://127.0.0.1:8000, Swagger at /docs)
-python -m uvicorn backend.app.main:app --reload --port 8000
+# 5. run the backend  (http://127.0.0.1:7860, Swagger at /docs)
+python -m uvicorn backend.app.main:app --reload --port 7860
 
 # 6. run the frontend  (in a second terminal)
 cd frontend
 npm install
-cp .env.example .env        # defaults to http://127.0.0.1:8000
+cp .env.example .env        # defaults to http://127.0.0.1:7860
 npm run dev                 # http://localhost:5173
 ```
 
 Smoke-test the API directly:
 
 ```bash
-curl http://127.0.0.1:8000/health
+curl http://127.0.0.1:7860/health
 # {"status":"ok"}
 
-curl -s -X POST http://127.0.0.1:8000/chat \
+curl -s -X POST http://127.0.0.1:7860/chat \
   -H 'Content-Type: application/json' \
   -d '{"query":"What is the punishment for murder and how is the trial conducted?"}' \
   | python -m json.tool

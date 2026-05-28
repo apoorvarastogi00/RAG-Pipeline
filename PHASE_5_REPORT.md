@@ -191,7 +191,7 @@ once in the lifespan hook).
    The `*` rows are the explicitly-pinned section.
 2. **The collision trap, end to end.** Through the running server:
    ```bash
-   curl -s -X POST localhost:8000/chat -H 'Content-Type: application/json' \
+   curl -s -X POST localhost:7860/chat -H 'Content-Type: application/json' \
      -d '{"query":"Explain BNSS s. 187"}' | python -m json.tool
    ```
    Citations must be `BNSS s.187` (procedure), never `BNS s.187` (mint/coin).
