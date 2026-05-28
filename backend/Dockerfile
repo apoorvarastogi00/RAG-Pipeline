@@ -40,6 +40,6 @@ COPY Sources ./Sources
 RUN python -m backend.app.ingest \
     && python -c "from sentence_transformers import CrossEncoder; CrossEncoder('BAAI/bge-reranker-base')"
 
-# Render injects $PORT; default to 8000 for local `docker run`.
-EXPOSE 8000
-CMD ["sh", "-c", "uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Render injects $PORT; default to 7860 for local `docker run`.
+EXPOSE 7860
+CMD ["sh", "-c", "uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-7860}"]
