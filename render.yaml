@@ -1,0 +1,49 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Two services: a Dockerised FastAPI backend and a static React (Vite) site.
+#
+# Deploy: push this repo, then in Render → "New +" → "Blueprint" → pick the
+# repo. Set the GROQ_API_KEY secret in the dashboard (it is intentionally
+# NOT in this file). The frontend's VITE_API_BASE_URL must match the backend
+# service's public URL — update it if you rename the backend service.
+
+services:
+  # ----------------------------------------------------------------- backend
+  - type: web
+    name: legal-rag-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    # The embedder + cross-encoder reranker + torch hold ~1.5 GB resident.
+    # Render Free / Starter (512 MB) will OOM — use Standard (2 GB) or larger.
+    # To fit a smaller plan, set USE_RERANKER=false (see env vars) — that
+    # drops the reranker but still needs ~1 GB, so Free still won't work.
+    plan: standard
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false          # set in the Render dashboard; never committed
+      # Optional: flip retrieval reranking off to reduce memory.
+      # - key: USE_RERANKER
+      #   value: "false"
+
+  # ---------------------------------------------------------------- frontend
+  - type: web
+    name: legal-rag-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    autoDeploy: true
+    envVars:
+      # Baked into the static bundle at build time. Must equal the backend
+      # service's public URL. Default Render hostname is
+      # https://<service-name>.onrender.com — update if you rename the service
+      # or attach a custom domain.
+      - key: VITE_API_BASE_URL
+        value: https://legal-rag-backend.onrender.com
+    # SPA fallback: serve index.html for client-side routes.
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
