@@ -1,0 +1,425 @@
+[
+  {
+    "question": "What is the punishment for murder?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "103"
+      }
+    ],
+    "reference_answer": "The punishment for murder is death or imprisonment for life, and fine.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "How is gang rape punished?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "70"
+      }
+    ],
+    "reference_answer": "Gang rape is punishable with rigorous imprisonment for a term which shall not be less than twenty years, but which may extend to life which shall mean imprisonment for the remainder of that person's natural life, and with fine.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "What is the definition of theft?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "303"
+      }
+    ],
+    "reference_answer": "Theft is the dishonest moving of movable property out of the possession of any person without that person's consent.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "When can police arrest without a warrant?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "35"
+      }
+    ],
+    "reference_answer": "A police officer may arrest without a warrant any person who commits a cognizable offence in their presence, against whom a reasonable complaint is made, who is a proclaimed offender, or in other specific circumstances listed in the section.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "How is a search warrant issued for a place suspected to contain stolen property?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "97"
+      }
+    ],
+    "reference_answer": "A Magistrate may issue a warrant authorising a police officer to enter and search a place suspected to contain stolen property or forged documents, and to seize such property.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "What happens if an arrested person refuses to give their name and residence?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "39"
+      }
+    ],
+    "reference_answer": "They may be arrested by the police officer in order that their name or residence may be ascertained. Once ascertained, they shall be released on executing a bond.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "Can a private person arrest someone?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "40"
+      }
+    ],
+    "reference_answer": "Yes, a private person may arrest any person who in their presence commits a non-bailable and cognizable offence, or any proclaimed offender, and must hand them over to a police officer without unnecessary delay.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "What is the maximum period an undertrial prisoner can be detained?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "479"
+      }
+    ],
+    "reference_answer": "An undertrial prisoner may be released on bail if they have undergone detention for a period extending up to one-half of the maximum period of imprisonment specified for the offence. For first-time offenders, it may be one-third.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "How is an arrest made according to the Sanhita?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "43"
+      }
+    ],
+    "reference_answer": "An arrest is made by actually touching or confining the body of the person to be arrested, unless there is a submission to the custody by word or action.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "Must an arrested person be informed of the grounds of their arrest?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "47"
+      }
+    ],
+    "reference_answer": "Yes, every police officer or other person arresting any person without warrant shall forthwith communicate to him full particulars of the offence for which he is arrested or other grounds for such arrest.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "Can a person be detained for more than 24 hours?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "58"
+      }
+    ],
+    "reference_answer": "No police officer shall detain in custody a person arrested without warrant for a longer period than under all the circumstances of the case is reasonable, and such period shall not, in the absence of a special order of a Magistrate, exceed twenty-four hours exclusive of the time necessary for the journey from the place of arrest to the Magistrate's Court.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "In what cases is bail to be taken?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "478"
+      }
+    ],
+    "reference_answer": "When any person other than a person accused of a non-bailable offence is arrested or detained without warrant by an officer in charge of a police station, or appears or is brought before a Court, and is prepared at any time while in the custody of such officer or at any stage of the proceeding before such Court to give bail, such person shall be released on bail.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "If someone commits theft in a dwelling house, and their servant also commits theft of the master's property, what are the relevant sections?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "305"
+      },
+      {
+        "source": "BNS",
+        "section_number": "306"
+      }
+    ],
+    "reference_answer": "Theft in a dwelling house is covered under BNS 305, and theft by a clerk or servant of property in possession of the master is covered under BNS 306.",
+    "category": "multi_section"
+  },
+  {
+    "question": "What is the punishment for murder, and what if it is committed by a life-convict?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "103"
+      },
+      {
+        "source": "BNS",
+        "section_number": "104"
+      }
+    ],
+    "reference_answer": "Murder is punished under BNS 103 with death or life imprisonment and fine. If committed by a life-convict, it is punished under BNS 104 with death or life imprisonment.",
+    "category": "multi_section"
+  },
+  {
+    "question": "How do you distinguish between murder and culpable homicide not amounting to murder?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "101"
+      },
+      {
+        "source": "BNS",
+        "section_number": "105"
+      }
+    ],
+    "reference_answer": "Murder is defined and punishable under BNS 101 and 103, while culpable homicide not amounting to murder is covered under BNS 105, which provides a lesser punishment when the act falls under certain exceptions like sudden provocation.",
+    "category": "multi_section"
+  },
+  {
+    "question": "What are the rules regarding the medical examination of an arrested person and a person accused of rape?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "53"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "52"
+      }
+    ],
+    "reference_answer": "BNSS 53 provides for the general medical examination of an arrested person by a medical officer. BNSS 52 specifically mandates the examination of a person accused of rape by a medical practitioner.",
+    "category": "multi_section"
+  },
+  {
+    "question": "Explain the difference between summary trials by a second-class Magistrate and the general procedure for summary trials.",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "284"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "285"
+      }
+    ],
+    "reference_answer": "BNSS 284 outlines when a Magistrate of the second class may conduct a summary trial, while BNSS 285 details the overall procedure to be followed in summary trials.",
+    "category": "multi_section"
+  },
+  {
+    "question": "What is the procedure when a person is arrested against whom a warrant is issued, and what does the Magistrate do?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "82"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "83"
+      }
+    ],
+    "reference_answer": "BNSS 82 specifies the procedure on arrest of a person against whom a warrant is issued, and BNSS 83 outlines the procedure by the Magistrate before whom such arrested person is brought.",
+    "category": "multi_section"
+  },
+  {
+    "question": "How are properties disposed of pending a trial and at the conclusion of a trial?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "497"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "498"
+      }
+    ],
+    "reference_answer": "Pending trial, the custody and disposal of property is governed by BNSS 497. At the conclusion of the trial, disposal is governed by BNSS 498.",
+    "category": "multi_section"
+  },
+  {
+    "question": "Can a person be released on bail for a non-bailable offence, and what are the special powers of the High Court?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "480"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "483"
+      }
+    ],
+    "reference_answer": "Bail may be taken in case of a non-bailable offence under BNSS 480 under certain conditions. Additionally, the High Court or Court of Session has special powers regarding bail under BNSS 483.",
+    "category": "multi_section"
+  },
+  {
+    "question": "How is bail dealt with when the person apprehends arrest, and can a bail bond be cancelled?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "482"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "492"
+      }
+    ],
+    "reference_answer": "A person apprehending arrest can apply for a direction for grant of bail (anticipatory bail) under BNSS 482. A bond and bail bond can be cancelled under BNSS 492.",
+    "category": "multi_section"
+  },
+  {
+    "question": "What is the procedure when an inquiry or trial is held in the absence of the accused, and what if the person is a proclaimed offender?",
+    "expected_sections": [
+      {
+        "source": "BNSS",
+        "section_number": "355"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "356"
+      }
+    ],
+    "reference_answer": "BNSS 355 provides for inquiries and trials being held in the absence of the accused in certain cases. BNSS 356 specifically addresses the inquiry, trial, or judgment in absentia of a proclaimed offender.",
+    "category": "multi_section"
+  },
+  {
+    "question": "What is the punishment for murder and how is the search of the arrested person conducted?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "103"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "49"
+      }
+    ],
+    "reference_answer": "The punishment for murder is prescribed in BNS 103 as death or life imprisonment. The search of an arrested person is conducted according to BNSS 49, where the police officer may search the person and place all articles found upon them in safe custody.",
+    "category": "cross_document"
+  },
+  {
+    "question": "If someone commits theft, what is the punishment, and can the police arrest them without a warrant?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "303"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "35"
+      }
+    ],
+    "reference_answer": "Theft is punished under BNS 303. Under BNSS 35, police may arrest without a warrant if the offence is cognizable.",
+    "category": "cross_document"
+  },
+  {
+    "question": "How is rape punished, and what is the medical examination procedure for the victim?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "64"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "184"
+      }
+    ],
+    "reference_answer": "Rape is punished under BNS 64. The medical examination of a victim of rape is detailed in BNSS 184.",
+    "category": "cross_document"
+  },
+  {
+    "question": "What is the penalty for kidnapping to murder, and what are the rights of the arrested person regarding legal representation?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "140"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "38"
+      }
+    ],
+    "reference_answer": "Kidnapping or abducting in order to murder is punished under BNS 140. An arrested person has the right to meet an advocate of their choice during interrogation under BNSS 38.",
+    "category": "cross_document"
+  },
+  {
+    "question": "What is the offence of failing to appear in court after being released on bail, and how is the bond cancelled?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "269"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "492"
+      }
+    ],
+    "reference_answer": "Failure to appear in Court by a person released on bail is an offence under BNS 269. The cancellation of the bond and bail bond is managed under BNSS 492.",
+    "category": "cross_document"
+  },
+  {
+    "question": "Is an attempt to murder a bailable offence, and what is the punishment?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "109"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "480"
+      }
+    ],
+    "reference_answer": "Attempt to murder is punished under BNS 109. Being a serious offence, it is non-bailable, but bail may be taken in case of a non-bailable offence under the specific conditions of BNSS 480.",
+    "category": "cross_document"
+  },
+  {
+    "question": "If an officer commits someone for trial contrary to law, what is their punishment, and how does a High Court decide the place of trial?",
+    "expected_sections": [
+      {
+        "source": "BNS",
+        "section_number": "259"
+      },
+      {
+        "source": "BNSS",
+        "section_number": "206"
+      }
+    ],
+    "reference_answer": "Under BNS 259, an officer acting contrary to law in committing a person for trial faces punishment. In case of doubt regarding the district of inquiry or trial, the High Court decides under BNSS 206.",
+    "category": "cross_document"
+  },
+  {
+    "question": "What is the capital of France?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  },
+  {
+    "question": "How do I file my income tax return?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  },
+  {
+    "question": "What does Section 379 of the IPC say about theft?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  },
+  {
+    "question": "Explain the rules of cricket.",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  },
+  {
+    "question": "What is the process to apply for a driving license?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  },
+  {
+    "question": "Can you provide medical advice for a headache?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  }
+]
