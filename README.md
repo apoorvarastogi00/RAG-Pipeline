@@ -60,7 +60,7 @@ unrelated. So **every chunk and every citation carries a `source` field**
 | Reranker | `BAAI/bge-reranker-base` (local) | Cross-encoder — the real retrieval-quality win |
 | LLM | **Llama 3.3 70B** via Groq (`llama-3.3-70b-versatile`) | Open-weight; Groq is very fast |
 | Frontend | React + Vite | Lightweight chat UI; deploys as a static site |
-| Auth | None | Option B doesn't need it — time spent on retrieval + evals instead |
+| Auth | None | This doesn't need it — time spent on retrieval + evals instead |
 
 ---
 
