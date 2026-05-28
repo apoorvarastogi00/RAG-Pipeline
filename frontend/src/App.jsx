@@ -3,7 +3,7 @@ import { postChat, checkHealth, BASE_URL } from './api.js'
 import Message from './components/Message.jsx'
 
 const SUGGESTIONS = [
-  'What is the punishment for murder under the BNS?',
+  'What is the punishment for murder?',
   'Explain BNSS s. 187',
   'What is the punishment for murder and how is the trial conducted?',
   'Difference between murder and culpable homicide?',
@@ -55,8 +55,8 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header__title">
-          <h1>Legal Research RAG</h1>
-          <span className="header__subtitle">Bharatiya Nyaya Sanhita (BNS) · Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023</span>
+          <h1>Legal Research Chat</h1>
+          <span className="header__subtitle">BNS and BNSS, 2023</span>
         </div>
         <div className={`status status--${health}`} title={BASE_URL}>
           <span className="status__dot" />
@@ -67,10 +67,9 @@ export default function App() {
       <main className="thread" ref={threadRef}>
         {empty && (
           <div className="welcome">
-            <h2>Ask about Indian criminal law</h2>
+            <h2>Ask a legal research question</h2>
             <p>
-              Answers are grounded only in the BNS (offences) and BNSS (procedure), 2023.
-              Every citation is tagged with its Act because the two share section numbers.
+              Search the BNS and BNSS with section-level citations.
             </p>
             <div className="suggestions">
               {SUGGESTIONS.map((s) => (
