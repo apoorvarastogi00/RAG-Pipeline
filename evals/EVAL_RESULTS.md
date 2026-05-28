@@ -1,6 +1,7 @@
 # Evaluation Results
 
 Questions: 35
+Dataset: `evals/eval_questions.json`
 Top-k: 7
 Mode: `retrieval_proxy`
 Generator/Judge model in `--full` mode: `llama-3.3-70b-versatile`

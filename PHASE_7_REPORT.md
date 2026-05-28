@@ -171,3 +171,11 @@ needs the daily quota to reset (Groq resets TPD daily) or a higher-tier key.
    (eval harness, ~35 questions) will need substantially more than that in a
    single run — budget for a quota reset, a paid Groq tier, or running the
    evals in batches across days.
+
+---
+
+## Final submission update — 2026-05-28
+
+The frontend has been polished into the final legal-research copilot UI and is
+live on Vercel at https://rag-pipeline-silk.vercel.app. It points to the
+Hugging Face backend and uses the same `/chat` contract from Phase 4.

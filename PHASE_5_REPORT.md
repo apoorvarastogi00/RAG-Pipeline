@@ -215,3 +215,12 @@ once in the lifespan hook).
    ignores irrelevant context), but if the Phase 6 evals show procedure noise
    hurting offence-only questions, we can add a light source-bias when the
    query is clearly offence-only. Not doing it now to avoid over-fitting.
+
+---
+
+## Final submission update — 2026-05-28
+
+Phase 5 retrieval remains the deployed retrieval path: explicit-section
+pinning, per-Act candidate pools, reranking, and diversity-capped top-k.
+The new 20-question eval includes an `ambiguous_followup` row that retrieves
+both BNS s.109 and BNS s.103 for the public-shooting scenario.

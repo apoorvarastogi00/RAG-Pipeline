@@ -180,3 +180,11 @@ Please spot-check the following against the PDF and the sample file:
    (say 1000-char), it's a one-line change at the top of
    [backend/app/chunker.py](backend/app/chunker.py). Phase 3 will need to
    re-run regardless, so flag this before we proceed.
+
+---
+
+## Final submission update — 2026-05-28
+
+The section-aware chunking strategy is now documented in the final README and
+is exercised by both eval sets: the original 35-question eval and the new
+reviewer-friendly 20-question eval.

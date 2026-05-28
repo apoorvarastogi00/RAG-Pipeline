@@ -156,3 +156,11 @@ curl localhost:7860/health
    baking) but did **not** run an actual `docker build`. Recommend you run the
    local `docker build` once (command above) before applying the blueprint,
    to catch any environment-specific surprise early.
+
+---
+
+## Final submission update — 2026-05-28
+
+Deployment moved from the planned Render path to a working split deployment:
+frontend on Vercel and backend on Hugging Face Spaces. `GROQ_API_KEY` is stored
+as a Hugging Face secret and is not committed to GitHub.

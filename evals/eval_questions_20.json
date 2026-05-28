@@ -1,0 +1,155 @@
+[
+  {
+    "question": "What is the punishment for murder?",
+    "expected_sections": [{"source": "BNS", "section_number": "103"}],
+    "reference_answer": "Murder is punished under BNS s.103 with death or imprisonment for life, and fine.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "What is the definition of theft?",
+    "expected_sections": [{"source": "BNS", "section_number": "303"}],
+    "reference_answer": "Theft is dishonestly moving movable property out of a person's possession without that person's consent.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "When can police arrest without a warrant?",
+    "expected_sections": [{"source": "BNSS", "section_number": "35"}],
+    "reference_answer": "BNSS s.35 lists when police may arrest without warrant, including cognizable offences and other specified circumstances.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "Must an arrested person be informed of the grounds of arrest?",
+    "expected_sections": [{"source": "BNSS", "section_number": "47"}],
+    "reference_answer": "Yes. BNSS s.47 requires communication of the grounds of arrest and the right to bail where applicable.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "What is gang rape and how is it punished?",
+    "expected_sections": [{"source": "BNS", "section_number": "70"}],
+    "reference_answer": "Gang rape is covered by BNS s.70 and carries rigorous imprisonment of at least twenty years, extendable to life for the remainder of natural life, and fine.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "In what cases is bail to be taken?",
+    "expected_sections": [{"source": "BNSS", "section_number": "478"}],
+    "reference_answer": "BNSS s.478 governs bail for persons not accused of non-bailable offences when they are ready to give bail.",
+    "category": "easy_lookup"
+  },
+  {
+    "question": "What is the punishment for murder, and what if it is committed by a life-convict?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "103"},
+      {"source": "BNS", "section_number": "104"}
+    ],
+    "reference_answer": "BNS s.103 punishes murder; BNS s.104 covers punishment for murder by a life-convict.",
+    "category": "multi_section"
+  },
+  {
+    "question": "How do you distinguish between murder and culpable homicide not amounting to murder?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "101"},
+      {"source": "BNS", "section_number": "105"}
+    ],
+    "reference_answer": "BNS s.101 addresses murder, while BNS s.105 addresses punishment for culpable homicide not amounting to murder.",
+    "category": "multi_section"
+  },
+  {
+    "question": "What are the rules for medical examination of an arrested person and of a person accused of rape?",
+    "expected_sections": [
+      {"source": "BNSS", "section_number": "53"},
+      {"source": "BNSS", "section_number": "52"}
+    ],
+    "reference_answer": "BNSS s.53 covers examination of an arrested person; BNSS s.52 covers examination of a person accused of rape.",
+    "category": "multi_section"
+  },
+  {
+    "question": "How are properties disposed of pending trial and at the conclusion of trial?",
+    "expected_sections": [
+      {"source": "BNSS", "section_number": "497"},
+      {"source": "BNSS", "section_number": "498"}
+    ],
+    "reference_answer": "BNSS s.497 governs custody and disposal of property pending trial; BNSS s.498 governs disposal at conclusion of trial.",
+    "category": "multi_section"
+  },
+  {
+    "question": "Can a person be released on bail for a non-bailable offence, and what are the special powers of the High Court?",
+    "expected_sections": [
+      {"source": "BNSS", "section_number": "480"},
+      {"source": "BNSS", "section_number": "483"}
+    ],
+    "reference_answer": "BNSS s.480 deals with bail in non-bailable offences; BNSS s.483 gives special bail powers to the High Court or Court of Session.",
+    "category": "multi_section"
+  },
+  {
+    "question": "What is the punishment for murder and how is the trial conducted?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "103"},
+      {"source": "BNSS", "section_number": "248"}
+    ],
+    "reference_answer": "BNS s.103 gives punishment for murder, while BNSS s.248 provides that trials before a Court of Session are conducted by a Public Prosecutor.",
+    "category": "cross_document"
+  },
+  {
+    "question": "If someone commits theft, what is the punishment, and can police arrest them without a warrant?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "303"},
+      {"source": "BNSS", "section_number": "35"}
+    ],
+    "reference_answer": "BNS s.303 covers theft and its punishment; BNSS s.35 covers arrest without warrant for specified circumstances.",
+    "category": "cross_document"
+  },
+  {
+    "question": "How is rape punished, and what is the medical examination procedure for the victim?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "64"},
+      {"source": "BNSS", "section_number": "184"}
+    ],
+    "reference_answer": "BNS s.64 punishes rape; BNSS s.184 covers medical examination of the victim of rape.",
+    "category": "cross_document"
+  },
+  {
+    "question": "What offence is committed by failing to appear after release on bail, and how can the bail bond be cancelled?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "269"},
+      {"source": "BNSS", "section_number": "492"}
+    ],
+    "reference_answer": "BNS s.269 covers failure to appear after release on bond; BNSS s.492 covers cancellation of bond and bail bond.",
+    "category": "cross_document"
+  },
+  {
+    "question": "If someone shoots a person in public, what will be his punishment?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "109"},
+      {"source": "BNS", "section_number": "103"}
+    ],
+    "reference_answer": "The answer depends on facts such as death and intent; BNS s.109 may apply to attempt to murder, while BNS s.103 applies if murder is established.",
+    "category": "ambiguous_followup"
+  },
+  {
+    "question": "If a person is found with stolen property, what offence or procedure may apply?",
+    "expected_sections": [
+      {"source": "BNS", "section_number": "317"},
+      {"source": "BNSS", "section_number": "97"}
+    ],
+    "reference_answer": "BNS s.317 covers stolen property offences, and BNSS s.97 may apply to search of a place suspected to contain stolen property.",
+    "category": "cross_document"
+  },
+  {
+    "question": "What is the capital of France?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  },
+  {
+    "question": "How do I file my income tax return?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  },
+  {
+    "question": "What does Section 379 of the IPC say about theft?",
+    "expected_sections": [],
+    "reference_answer": "NO_ANSWER",
+    "category": "out_of_scope"
+  }
+]

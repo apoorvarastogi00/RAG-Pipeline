@@ -133,3 +133,12 @@ The failures point to practical Phase 7/8 candidates:
 - For out-of-scope/adversarial questions, add a cheap pre-generation classifier
   or confidence threshold so unrelated dense hits do not force weak context
   into the generator.
+
+---
+
+## Final submission update — 2026-05-28
+
+Added a smaller 20-question evaluation set for reviewer smoke testing:
+[evals/eval_questions_20.json](evals/eval_questions_20.json). Latest
+retrieval-proxy result: **97.5% retrieval hit-rate** and **95.0% answer
+correctness proxy**, saved in [evals/EVAL_RESULTS_20.md](evals/EVAL_RESULTS_20.md).

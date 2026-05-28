@@ -251,3 +251,11 @@ this flag is set (they're the retrieved-but-unrelated sections).
    call. The retriever + embedder add ~50 ms. Cold start (loading bge
    weights into memory) is ~1 s extra; the lifespan hook does this once at
    startup so the first user request is already warm.
+
+---
+
+## Final submission update — 2026-05-28
+
+The `/chat` API contract is still unchanged, but the generator prompt now asks
+targeted follow-up questions when the retrieved context supports only a
+partial answer and the exact legal conclusion depends on missing facts.

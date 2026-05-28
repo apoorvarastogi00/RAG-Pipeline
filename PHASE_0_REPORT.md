@@ -74,3 +74,13 @@ These are listed in PROJECT_PLAN.md Section 2 but belong to later phases — cre
 7. **First commit is a root commit.** Verify with `git log --oneline` — expect a single line: `chore: scaffold repo structure`.
 
 8. **No application logic was written.** As instructed. Stopping here.
+
+---
+
+## Final submission update — 2026-05-28
+
+The originally scaffolded repo now has all planned phases implemented,
+deployed, and documented. Live frontend:
+https://rag-pipeline-silk.vercel.app. Live backend:
+https://apoorvarastogi-legal-rag-bns-backend.hf.space. Demo video:
+[demo/legal-rag-demo.webm](demo/legal-rag-demo.webm).

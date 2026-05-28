@@ -36,8 +36,8 @@ from backend.app import config
 from backend.app.generator import build_context, call_groq, parse_answer
 from backend.app.retriever import Retriever
 
-QUESTIONS_PATH = ROOT / "evals" / "eval_questions.json"
-RESULTS_PATH = ROOT / "evals" / "EVAL_RESULTS.md"
+DEFAULT_QUESTIONS_PATH = ROOT / "evals" / "eval_questions.json"
+DEFAULT_RESULTS_PATH = ROOT / "evals" / "EVAL_RESULTS.md"
 JUDGE_MODEL = config.GROQ_MODEL_NAME
 
 
@@ -62,8 +62,8 @@ class EvalResult:
     mode: str
 
 
-def _load_questions() -> list[EvalCase]:
-    raw = json.loads(QUESTIONS_PATH.read_text())
+def _load_questions(path: Path) -> list[EvalCase]:
+    raw = json.loads(path.read_text())
     return [
         EvalCase(
             question=item["question"],
@@ -221,14 +221,21 @@ def _summarise(results: list[EvalResult]) -> dict[str, dict[str, float]]:
     return summary
 
 
-def _render_markdown(results: list[EvalResult]) -> str:
+def _render_markdown(results: list[EvalResult], questions_path: Path) -> str:
     summary = _summarise(results)
-    order = ["easy_lookup", "multi_section", "cross_document", "out_of_scope", "TOTAL"]
+    preferred_order = ["easy_lookup", "multi_section", "cross_document", "ambiguous_followup", "out_of_scope"]
+    order = [category for category in preferred_order if category in summary]
+    order.extend(
+        category for category in summary
+        if category not in set(order) and category != "TOTAL"
+    )
+    order.append("TOTAL")
 
     lines = [
         "# Evaluation Results",
         "",
         f"Questions: {len(results)}",
+        f"Dataset: `{questions_path.relative_to(ROOT)}`",
         f"Top-k: {config.RERANK_TOP_K}",
         f"Mode: `{results[0].mode}`",
         f"Generator/Judge model in `--full` mode: `{config.GROQ_MODEL_NAME}`",
@@ -303,6 +310,18 @@ def _parse_args() -> argparse.Namespace:
             "mode runs a local retrieval-proxy eval to avoid API quota noise."
         ),
     )
+    parser.add_argument(
+        "--questions",
+        type=Path,
+        default=DEFAULT_QUESTIONS_PATH,
+        help="Path to an eval question JSON file.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_RESULTS_PATH,
+        help="Path where the markdown results file should be written.",
+    )
     return parser.parse_args()
 
 
@@ -315,7 +334,14 @@ def main() -> None:
             "backend/.env and set GROQ_API_KEY."
         )
 
-    cases = _load_questions()
+    questions_path = args.questions
+    if not questions_path.is_absolute():
+        questions_path = ROOT / questions_path
+    output_path = args.output
+    if not output_path.is_absolute():
+        output_path = ROOT / output_path
+
+    cases = _load_questions(questions_path)
     retriever = Retriever()
     judge_client = (
         Groq(api_key=os.environ["GROQ_API_KEY"])
@@ -333,8 +359,8 @@ def main() -> None:
             f"expected={_format_sections(result.expected)}"
         )
 
-    markdown = _render_markdown(results)
-    RESULTS_PATH.write_text(markdown)
+    markdown = _render_markdown(results, questions_path)
+    output_path.write_text(markdown)
     print()
     print(markdown)
 

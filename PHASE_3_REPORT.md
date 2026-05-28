@@ -183,3 +183,12 @@ them apart.
    from Phase 2). Their embeddings reflect only the first ~1800 chars; the
    tail is invisible to retrieval. Listed in [PHASE_2_REPORT.md](PHASE_2_REPORT.md).
    We can revisit if any of them shows up missing in the Phase 6 evals.
+
+---
+
+## Final submission update — 2026-05-28
+
+The Chroma index remains a rebuildable local artifact. The live Hugging Face
+backend rebuilds the index from committed `chunks.json` during Docker build,
+while GitHub users can reproduce the same state with
+`python -m backend.app.ingest`.

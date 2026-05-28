@@ -184,3 +184,11 @@ Please verify the following directly against the PDFs in `Sources/`:
    Should I collapse the gazette's stray spaces (e.g. `SA VINGS → SAVINGS`)
    in chapter titles before Phase 2 writes them into chunk metadata? My
    default would be yes, but only after you confirm.
+
+---
+
+## Final submission update — 2026-05-28
+
+The parser output remains the source of the committed
+[backend/data/sections.json](backend/data/sections.json). The deployed app uses
+the same parsed BNS/BNSS section corpus available in the public GitHub repo.

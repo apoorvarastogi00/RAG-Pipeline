@@ -12,9 +12,9 @@ law:
 - **Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023** — the criminal
   **procedure** code (replaces the Code of Criminal Procedure).
 
-> **Live demo:** not yet deployed. The repo is deploy-ready — `render.yaml`
-> defines a Render Blueprint (Dockerised backend + static frontend); see
-> [Deployment](#deployment). Paste the URL here once live.
+> **Live demo:** https://rag-pipeline-silk.vercel.app
+> **Backend API:** https://apoorvarastogi-legal-rag-bns-backend.hf.space
+> **30-second demo video:** [demo/legal-rag-demo.webm](demo/legal-rag-demo.webm)
 
 ---
 
@@ -50,6 +50,7 @@ unrelated. So **every chunk and every citation carries a `source` field**
                     ├─ diversity cap (≤2 parts/section), keep top-7
                     ├─ build grounded context  ("[BNS s.103 — heading] …")
                     └─ Groq  Llama 3.3 70B  ─► answer + citations + retrieved_sections + no_answer
+                                                   + targeted follow-up questions when facts are ambiguous
 ```
 
 | Layer | Choice | Why |
@@ -59,7 +60,7 @@ unrelated. So **every chunk and every citation carries a `source` field**
 | Embeddings | `BAAI/bge-base-en-v1.5` (local) | Strong small English retriever; 768-dim |
 | Reranker | `BAAI/bge-reranker-base` (local) | Cross-encoder — the real retrieval-quality win |
 | LLM | **Llama 3.3 70B** via Groq (`llama-3.3-70b-versatile`) | Open-weight; Groq is very fast |
-| Frontend | React + Vite | Lightweight chat UI; deploys as a static site |
+| Frontend | React + Vite on Vercel | Premium legal-research chat UI; deploys as a static site |
 | Auth | None | This doesn't need it — time spent on retrieval + evals instead |
 
 ---
@@ -173,6 +174,19 @@ The retriever is designed around two common legal-question shapes:
 This is also why source-qualified citations are mandatory. `BNS s.103` and
 `BNSS s.103` are unrelated, so section number alone is not a safe identifier.
 
+### Ambiguous questions and follow-ups
+
+Some criminal-law questions cannot be answered with a single punishment unless
+the user gives more facts. Example: *"If someone shoots a person in public,
+what will be his punishment?"* may involve murder, attempt to murder, affray,
+riot, or other sections depending on death, intent, public-servant involvement,
+and the surrounding facts.
+
+The generator prompt therefore answers the grounded part first and then asks
+targeted follow-up questions when the legal conclusion depends on missing
+facts. This keeps the UX useful without pretending the law has a single answer
+for an underspecified fact pattern.
+
 ---
 
 ## Evaluation
@@ -189,6 +203,19 @@ correctness). Latest run ([evals/EVAL_RESULTS.md](evals/EVAL_RESULTS.md)):
 | cross_document | 7 | 78.6% | 71.4% |
 | out_of_scope | 6 | 100.0% | 100.0% |
 | **TOTAL** | **35** | **85.7%** | **80.0%** |
+
+For a short reviewer-friendly smoke test, the repo also includes
+`evals/eval_questions_20.json` and its latest run
+([evals/EVAL_RESULTS_20.md](evals/EVAL_RESULTS_20.md)):
+
+| Category | Count | Retrieval Hit-Rate | Answer Correctness |
+|---|---:|---:|---:|
+| easy_lookup | 6 | 100.0% | 100.0% |
+| multi_section | 5 | 90.0% | 80.0% |
+| cross_document | 5 | 100.0% | 100.0% |
+| ambiguous_followup | 1 | 100.0% | 100.0% |
+| out_of_scope | 3 | 100.0% | 100.0% |
+| **TOTAL** | **20** | **97.5%** | **95.0%** |
 
 Short reflection:
 
@@ -212,6 +239,7 @@ Run it yourself:
 
 ```bash
 python evals/run_evals.py            # retrieval-only, no Groq tokens used
+python evals/run_evals.py --questions evals/eval_questions_20.json --output evals/EVAL_RESULTS_20.md
 python evals/run_evals.py --full     # also generates + LLM-judges (uses Groq)
 ```
 
@@ -233,6 +261,9 @@ python evals/run_evals.py --full     # also generates + LLM-judges (uses Groq)
 - **Index is a rebuildable artifact** — `chunks.json` is committed; the Chroma
   index is gitignored and rebuilt by `ingest.py`. The Docker image bakes it in
   at build time for fast, deterministic cold starts.
+- **Secrets stay out of GitHub** — local users provide their own
+  `GROQ_API_KEY`; the live Hugging Face Space stores the key as a deployment
+  secret.
 
 ---
 
@@ -273,7 +304,8 @@ Legal Research RAG ChatBot/
 │   ├── Dockerfile
 │   └── requirements.txt
 ├── frontend/               React + Vite chat UI (Phase 7)
-├── evals/                  eval_questions.json, run_evals.py, EVAL_RESULTS.md (Phase 6)
+├── evals/                  35-question + 20-question evals and results
+├── demo/                   30-second WebM demo and generator script
 ├── Sources/                the two source PDFs
 ├── render.yaml             Render Blueprint (Phase 8)
 └── PHASE_0..9_REPORT.md    per-phase implementation notes & manual checks
@@ -281,10 +313,14 @@ Legal Research RAG ChatBot/
 
 ## Deployment
 
-`render.yaml` is a Render Blueprint defining the Dockerised backend (web
-service) and the React frontend (static site). `GROQ_API_KEY` is set in the
-Render dashboard (never committed). Full steps and caveats in
-`PHASE_8_REPORT.md`.
+The live frontend is deployed on Vercel:
+https://rag-pipeline-silk.vercel.app
+
+The live backend is deployed as a Docker Hugging Face Space:
+https://apoorvarastogi-legal-rag-bns-backend.hf.space
+
+`GROQ_API_KEY` is set as a Hugging Face Space secret and is never committed.
+`render.yaml` is retained as an alternate Render Blueprint.
 
 ## License
 

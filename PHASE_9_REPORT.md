@@ -95,3 +95,11 @@ deployment.**
    `--full` (uses Groq).
 6. **`backend/.env` is present locally with your key and is gitignored** —
    confirm `git status` never shows it before pushing.
+
+---
+
+## Final submission update — 2026-05-28
+
+The final README now includes the live frontend/backend URLs, the 30-second
+demo video, the 20-question eval table, and the follow-up-question behavior for
+ambiguous legal fact patterns.
