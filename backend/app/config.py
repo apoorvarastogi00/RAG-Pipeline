@@ -52,3 +52,13 @@ CHROMA_DISTANCE_SPACE = "cosine"
 
 EMBED_BATCH_SIZE = 32
 DEFAULT_TOP_K    = 5
+
+# --------------------------------------------------------------- retrieval
+
+# Phase 5 two-stage retrieval. We pull a wide candidate pool per Act with the
+# bi-encoder, then a cross-encoder reranks the union and we keep the top
+# RERANK_TOP_K. Pulling per-Act guarantees both BNS and BNSS are represented
+# for cross-document questions, instead of one Act crowding out the other.
+CANDIDATE_POOL_PER_SOURCE = 15   # dense candidates fetched per Act
+RERANK_TOP_K              = 7    # final results returned after reranking
+USE_RERANKER              = True

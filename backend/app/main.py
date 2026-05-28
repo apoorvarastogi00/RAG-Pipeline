@@ -169,5 +169,7 @@ async def health() -> HealthResponse:
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest) -> ChatResponse:
     assert _retriever is not None, "Retriever not initialised (lifespan)"
-    chunks = _retriever.search(req.query, k=config.DEFAULT_TOP_K)
+    # Phase 5 two-stage retrieval: per-Act dense pool + explicit-section
+    # pinning, reranked down to RERANK_TOP_K.
+    chunks = _retriever.search(req.query, k=config.RERANK_TOP_K)
     return _build_response(req.query, chunks)
