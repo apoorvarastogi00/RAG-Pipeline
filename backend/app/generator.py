@@ -50,6 +50,16 @@ RULES — follow ALL of them:
        <one sentence stating what is missing from the corpus>
 
    The first line must be the bare token ``NO_ANSWER`` on its own line.
+
+5. If the context supports a partial answer but the exact legal conclusion
+   depends on missing facts, answer the supported part first, then add:
+
+       Follow-up questions:
+       1. <specific missing fact needed to determine the correct section or punishment>
+       2. <specific missing fact>
+
+   Ask only targeted legal/factual questions that change the applicable
+   section, offence, procedure, or punishment. Do not ask generic questions.
 """
 
 # Recognises citations in the form BNS s.103 / BNSS s.103 / BNS s. 103
